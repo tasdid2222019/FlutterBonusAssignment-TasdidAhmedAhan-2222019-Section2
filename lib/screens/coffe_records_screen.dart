@@ -14,11 +14,12 @@ class CoffeRecordsScreen extends StatefulWidget {
 
 class _CoffeRecordsScreenState extends State<CoffeRecordsScreen> {
   
-  late Provider<CoffeeStateManagement> csm;
+  late var csm;
 
-  initState() {
+  @override
+  void initState() {
     super.initState();
-    csm = Provider.of<CoffeeStateManagement>(context, listen: false) as Provider<CoffeeStateManagement>;
+    csm = Provider.of<CoffeeStateManagement>(context, listen: false);
   }
 
   @override
