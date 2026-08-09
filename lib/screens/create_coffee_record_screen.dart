@@ -69,7 +69,7 @@ class CreateCoffeeRecordScreen extends StatelessWidget {
             
                 const Spacer(),
                 ElevatedButton.icon(
-                    onPressed: (){
+                    onPressed: () async {
                       print(formKey.currentState!.validate());
                       if(formKey.currentState!.validate()){
                         CoffeeRecordsModel newRecord = CoffeeRecordsModel(
@@ -81,6 +81,7 @@ class CreateCoffeeRecordScreen extends StatelessWidget {
                       );
             
                       csm.addCoffeeRecord(newRecord);
+                       await csm.sendCoffeeRecordToFirebase(newRecord);
             
             
                       titleController.clear();

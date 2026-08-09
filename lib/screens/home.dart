@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:summer_iub_app/screens/coffe_records_screen.dart';
+import 'package:summer_iub_app/screens/coffee_records_stream_screen.dart';
 import 'package:summer_iub_app/screens/create_coffee_record_screen.dart';
 import 'package:summer_iub_app/state_management/coffee_state_management.dart';
 import 'package:summer_iub_app/widgets/app_backgroud_design_widget.dart';
@@ -38,6 +39,11 @@ class _HomePageState extends State<HomePage> {
    .push(MaterialPageRoute(builder: (context) =>  CreateCoffeeRecordScreen()));
   }
 
+   void navigateToCoffeeRecordsStreamScreen() {
+   Navigator.of(context)
+   .push(MaterialPageRoute(builder: (context) =>  CoffeeRecordsStreamScreen()));
+  }
+
 
 
   // Methods
@@ -56,14 +62,6 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.brown,
       ),
-
-
-      // * * * * -> Row
-
-      // * 
-      // * 
-      // *
-      // Column
 
       body: AppBackgroudDesignWidget(
           child: Column(
@@ -94,41 +92,12 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                       )
                     ),
-      
-                    // ---------------------------------------------------------
+
                     SizedBox(height: 10.00),
-                    // ---------------------------------------------------------
-      
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Expanded(
-                        //   flex: 3,
-                        //   child: Icon(
-                        //     Icons.local_cafe,
-                        //     color: Colors.white,
-                        //     size: 30.00,
-                        //   ),
-                        // ),
-      
-                        // Expanded(
-                        //   flex: 3,
-                        //   child: Icon(
-                        //     Icons.sunny,
-                        //     color: Colors.white,
-                        //     size: 30.00,
-                        //   ),
-                        // ),
-      
-                        // Expanded(
-                        //   flex: 3,
-                        //   child: Icon(
-                        //     Icons.map,
-                        //     color: Colors.white,
-                        //     size: 30.00,
-                        //   ),
-                        // ),
-      
                         ElevatedButton.icon(
                           onPressed:(){
                             navigateToCreateCoffeeRecordScreen();
@@ -154,9 +123,9 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-      
+
                         SizedBox(width: 10.00),
-      
+
                         IconButton.filled(
                           onPressed: (){
                             navigateToCoffeeRecordsScreen();
@@ -173,18 +142,34 @@ class _HomePageState extends State<HomePage> {
                             size: 30.00,
                           ),
                         ),
-                       
-                        
+
+                        SizedBox(width: 10.00),
+
+                        IconButton.filled(
+                          onPressed: (){
+                            navigateToCoffeeRecordsStreamScreen();
+                          },
+                          style: IconButton.styleFrom(
+                            backgroundColor: Colors.brown.shade800,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          icon: Icon(
+                            Icons.cloud_sync,
+                            color: Colors.white,
+                            size: 30.00,
+                          ),
+                        ),
+
                       ],
                     )
                   ],
                 ),
               ),
-      
+
               SizedBox(height: 30.00),
-      
-      
-              // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
               Text(
                   "How many coffee cups did you drink today?",
                   style: TextStyle(
@@ -192,8 +177,7 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 18.00,
                   )
                 ),
-        
-              // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
               Text(
                 _coffeeCount.toString(),
                 style: TextStyle(
@@ -202,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 )
               ),
-            
+
             ],
           )
         ),
