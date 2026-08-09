@@ -61,6 +61,6 @@ class CoffeeStateManagement with ChangeNotifier {
   // Exposes a real-time stream of the 'coffee_records' collection.
   // The new screen will feed this directly into a StreamBuilder.
   Stream<QuerySnapshot> getCoffeeRecordsStream() {
-    return coffeeRecordsRef.snapshots();
+  return coffeeRecordsRef.orderBy('date').snapshots();
   }
 }

@@ -92,6 +92,21 @@ class _CoffeeRecordsStreamScreenState extends State<CoffeeRecordsStreamScreen> {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(  
+        onPressed: () {
+          csm.sendCoffeeRecordToFirebase(
+            CoffeeRecordsModel(
+              id: DateTime.now().microsecondsSinceEpoch,
+              title: "New Coffee Record ${csm.items.length + 1}",
+              des: "THIS IS A TEST DATA",
+              amount: 10.0,
+              date: DateTime.now(),
+            ),
+          );
+        },
+        child: Icon(Icons.local_cafe),
+      ), 
     );
   }
 }
+    
